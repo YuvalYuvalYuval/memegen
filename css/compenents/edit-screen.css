@@ -4,13 +4,12 @@
 
 .edit-screen .text-input {
     width: 95%;
-    border-radius: .5rem;
-    padding: .3rem;
+    border-radius: .3rem;
+    padding: .6rem;
 }
 
 .edit-container {
     justify-items: center;
-    gap: .5rem;
 }
 
 .edit-canvas {
@@ -21,6 +20,7 @@
 .control-panel {
     flex-direction: column;
     justify-content: space-between;
+    gap: .5rem;
 }
 
 .control-panel>* {
