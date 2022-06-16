@@ -33,6 +33,10 @@ function toggleAbout() {
     document.querySelector('.about').classList.toggle('hidden')
 }
 
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
+}
+
 
 //EVENTS FROM VIEW
 function onImgSelect(imgId) {
@@ -54,6 +58,11 @@ function onSuggestionClick(keyId) {
     updateKeywordSearchCountMap(keyId)
     renderSuggestionSize(keyId)
     renderGallery()
+}
+
+function onRandom() {
+    const imgId = getRandomImgId()
+    onImgSelect(imgId)
 }
 
 function onGoToGallery() {

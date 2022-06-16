@@ -132,3 +132,7 @@ function setCurrImg(imgId) {
 function setSearchFilter(value) {
     gSearchFilter = value.toLowerCase()
 }
+
+function getRandomImgId() {
+    return Math.floor(Math.random() * gImgs.length)
+}
