@@ -34,8 +34,7 @@ var gCurrMeme =
 }
 
 function switchLine() {
-    gCurrMeme.selectedLineIdx++
-    if (gCurrMeme.selectedLineIdx >= gCurrMeme.lines.length) gCurrMeme.selectedLineIdx = 0
+    if (++gCurrMeme.selectedLineIdx >= gCurrMeme.lines.length) gCurrMeme.selectedLineIdx = 0
 }
 
 function moveLine(way) {
@@ -70,6 +69,13 @@ function createDefaultLine() {
 
 function getCurrMeme() {
     return gCurrMeme
+}
+
+function getCurrentLine() {
+    return gCurrMeme.selectedLineIdx
+}
+function getLineByIdx(lineIdx) {
+    return gCurrMeme.lines[lineIdx]
 }
 
 //SETTERS

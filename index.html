@@ -48,12 +48,13 @@
         <section class="edit-screen edit-layout main-layout">
             <div class="edit-container">
                 <canvas class='edit-canvas' height="650" width="650"></canvas>
-                <aside class="control-panel flex">
+                <div class="control-panel flex">
                     <input class="text-input" onfocus="this.value=''" type="text" placeholder="Edit Text..."
                         oninput="onEditTxt(this.value)">
                     <div class="line-menu flex">
                         <img onClick="onSwitchLine()"
                             src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="switch-line">
+                        line:<span id="current-line">1</span>
                         <img onClick="onAddLine()" src="img/ICONS/add.png" alt="add line">
                         <img onClick="onDeleteLine()" src="img/ICONS/trash.png" alt="delete line">
                     </div>
@@ -98,7 +99,7 @@
                             <span class="user-msg"></p>
                         </div>
                     </div>
-                </aside>
+                </div>
             </div>
         </section>
     </main>

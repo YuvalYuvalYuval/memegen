@@ -22,6 +22,9 @@ function onChangeFontSize(value) {
 
 function onSwitchLine() {
     switchLine()
+    const lineIdx = getCurrentLine()
+    document.getElementById('current-line').innerText = lineIdx + 1
+    drawRectAround(lineIdx)
 }
 
 function onAligne(way) {
@@ -36,7 +39,6 @@ function onDeleteLine() {
 
 function onAddLine() {
     addLine()
-    // clearCanvas()
     renderMeme()
 }
 
@@ -80,7 +82,7 @@ function renderText() {
     gCtx.strokeStyle = meme.stroke.color
     gCtx.lineWidth = meme.stroke.width
 
-    meme.lines.forEach((line) => {
+    meme.lines.forEach(line => {
         gCtx.font = line.size + `px ${meme.fontFamily}`
         gCtx.textAlign = line.align
         gCtx.fillStyle = line.color
@@ -89,10 +91,20 @@ function renderText() {
         gCtx.strokeText(line.txt, line.position.x, line.position.y)
     })
 }
+
+function drawRectAround(lineIdx) { //TODO
+    const line = getLineByIdx(lineIdx)
+    gCtx.beginPath()
+    gCtx.rect(0, line.position.y + 5, gElCanvas.width, -line.size - 5)
+    gCtx.strokeStyle = "black"
+    gCtx.stroke()
+    setTimeout(renderMeme, 700)
+}
+
 //CLEAR
-// function clearCanvas() {
-//     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
-// }
+function clearCanvas() {
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
+}
 
 //DOWNLOAD
 function downloadCanvas(elLink) {
