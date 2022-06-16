@@ -1,7 +1,6 @@
 header {
-    width: 100%;
     background-color: var(--clr2);
-    border-bottom: 2px solid var(--clr4);
+    grid-area: 1 / 1 / 2 / 2;
 }
 
 .header-container {

@@ -1,0 +1,27 @@
+.about {
+    text-align: left;
+    font-style: italic;
+    position: fixed;
+    border-radius: .5rem;
+    padding: .5rem;
+    background-color: rgba(245, 245, 245, 0.899);
+    max-width: 80%;
+    overflow: hidden;
+    top: 70px;
+}
+
+.about img {
+    width: 200px;
+}
+
+.about a {
+    color: blue;
+    text-decoration: underline;
+}
+
+.about button {
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+}

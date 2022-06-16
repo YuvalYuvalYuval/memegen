@@ -2,6 +2,13 @@
     margin: 1rem auto;
 }
 
+.search-bar {
+    background-color: whitesmoke;
+    width: 100vw;
+    grid-row-start: 0;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
 .gallery img {
     object-fit: cover;
     height: 100px;
@@ -23,10 +30,6 @@
     cursor: pointer;
 }
 
-.search-bar {
-    background-color: white;
-    width: 100vw;
-}
 
 
 .search-bar img {
@@ -45,5 +48,5 @@
 .search-memes .text-input {
     border: none;
     align-self: flex-end;
-    height:90%
+    height: 90%
 }

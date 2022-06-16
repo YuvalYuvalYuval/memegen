@@ -18,92 +18,116 @@
 
             <ul class="nav-bar clean-list flex">
                 <li><a onClick="onGoToGallery()" href="#">Gallery</a></li>
-                <li><a href="#">About</a></li>
+                <li><a onClick="toggleAbout()" href="#">About</a></li>
             </ul>
             <button onclick="toggleMenu(this)" class="menu-toggle">☰</button>
         </div>
     </header>
-    <section class="gallery-container">
-        <div class="gallery-content">
-            <div class="search-bar flex">
-                <div class="search-memes flex">
-                    <input class="text-input" type="text" placeholder="Enter search keyword">
-                    <img onclick="onSearchMemes()" src="img/ICONS/search-icon.png" alt="search">
-                </div>
-                <ul class="suggestions clean-list flex">
-                    <li id="classic" onclick="onSuggestionClick(this.id)">classic</li>
-                    <li id="tv" onclick="onSuggestionClick(this.id)">tv</li>
-                    <li id="movies" onclick="onSuggestionClick(this.id)">movies</li>
-                    <li id="babies" onclick="onSuggestionClick(this.id)">babies</li>
-                    <li id="cats" onclick="onSuggestionClick(this.id)">cats</li>
-                    <li id="politics" onclick="onSuggestionClick(this.id)">politics</li>
-                </ul>
-            </div>
-            <div class="gallery gallery-layout flex main-layout"></div>
-        </div>
-    </section>
-
-    <section class="edit-screen edit-layout main-layout">
-        <div class="grid edit-container">
-            <canvas class='edit-canvas' height="650" width="650"></canvas>
-            <aside class="control-panel grid">
-                <input class="text-input" onfocus="this.value=''" type="text" placeholder="Edit Text..."
-                    oninput="onEditTxt(this.value)">
-                <div class="line-menu flex">
-                    <img onClick="onSwitchLine()" src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png"
-                        alt="switch-line">
-                    <img onClick="onAddLine()" src="img/ICONS/add.png" alt="add line">
-                    <img onClick="onDeleteLine()" src="img/ICONS/trash.png" alt="delete line">
-                </div>
-                <div class="move flex">
-                    <img data-way="up" onclick="onMoveTxt(this.dataset.way)" src="img/ICONS/up-arrow.png" alt="move up">
-                    <img data-way="down" onclick="onMoveTxt(this.dataset.way)" src="img/ICONS/down-arrow.png"
-                        alt="move down">
-                </div>
-                <div class="align flex">
-                    <img data-way="right" onClick="onAligne(this.dataset.way)" src="img/ICONS/align-to-left.png"
-                        alt="align-left">
-                    <img data-way="center" onClick="onAligne(this.dataset.way)"
-                        src="img/ICONS/center-text-alignment.png" alt="align-center">
-                    <img data-way="left" onClick="onAligne(this.dataset.way)" src="img/ICONS/align-to-right.png"
-                        alt="align-right">
-                </div>
-                <div class="size flex">
-                    <input type="range" value="30" min="10" max="60" oninput="onChangeFontSize(this.value)">
-                    <span class="font-size">30</span>
-                </div>
-                <div class="font-family flex">
-                    <select value="Impact" onchange="onSetFontFamily(this.value)">
-                        <option value="Impact">Imapct</option>
-                        <option value="sans-serif">sans-serif</option>
-                    </select>
-                </div>
-                <div class="fill-color flex">
-                    <img src="img/ICONS/paint-board-and-brush.png" alt="fill">
-                    <input id="color-picker" type="color" oninput="onChangeTxtColor(this.value)">
-                </div>
-                <div class="stroke flex">
-                    <img src="img/ICONS/text stroke.png" alt="stroke">
-                    <input type="range" value="0" min="0" max="5" oninput="onChangeStrokeWidth(this.value)">
-                    <span class="stroke-size">0</span>
-                    <input id="color-picker" type="color" oninput="onChangeStrokeColor(this.value)">
-                </div>
-                <div class="share flex">
-                    <a href="#" onclick="downloadCanvas(this)" download="my-canvas">Download</a>
-                    <img id="fb-logo" onClick="uploadImg()" src="img/ICONS/facebook-logo.png" alt="facebook">
-                    <div class="share-container">
-                        <span class="user-msg"></p>
+    <main>
+        <section class="gallery-container">
+            <div class="gallery-content">
+                <div class="search-bar flex">
+                    <div class="search-memes flex">
+                        <input class="text-input" type="text" placeholder="Enter search keyword">
+                        <img onclick="onSearchMemes()" src="img/ICONS/search-icon.png" alt="search">
                     </div>
+                    <ul class="suggestions clean-list flex">
+                        <li id="classic" onclick="onSuggestionClick(this.id)">classic</li>
+                        <li id="tv" onclick="onSuggestionClick(this.id)">tv</li>
+                        <li id="movies" onclick="onSuggestionClick(this.id)">movies</li>
+                        <li id="babies" onclick="onSuggestionClick(this.id)">babies</li>
+                        <li id="cats" onclick="onSuggestionClick(this.id)">cats</li>
+                        <li id="politics" onclick="onSuggestionClick(this.id)">politics</li>
+                    </ul>
                 </div>
-            </aside>
-        </div>
-    </section>
+                <div class="gallery gallery-layout flex main-layout"></div>
+            </div>
+        </section>
 
+        <section class="edit-screen edit-layout main-layout">
+            <div class="edit-container">
+                <canvas class='edit-canvas' height="650" width="650"></canvas>
+                <aside class="control-panel flex">
+                    <input class="text-input" onfocus="this.value=''" type="text" placeholder="Edit Text..."
+                        oninput="onEditTxt(this.value)">
+                    <div class="line-menu flex">
+                        <img onClick="onSwitchLine()"
+                            src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="switch-line">
+                        <img onClick="onAddLine()" src="img/ICONS/add.png" alt="add line">
+                        <img onClick="onDeleteLine()" src="img/ICONS/trash.png" alt="delete line">
+                    </div>
+                    <div class="move flex">
+                        <img data-way="up" onclick="onMoveTxt(this.dataset.way)" src="img/ICONS/up-arrow.png"
+                            alt="move up">
+                        <img data-way="down" onclick="onMoveTxt(this.dataset.way)" src="img/ICONS/down-arrow.png"
+                            alt="move down">
+                    </div>
+                    <div class="align flex">
+                        <img data-way="right" onClick="onAligne(this.dataset.way)" src="img/ICONS/align-to-left.png"
+                            alt="align-left">
+                        <img data-way="center" onClick="onAligne(this.dataset.way)"
+                            src="img/ICONS/center-text-alignment.png" alt="align-center">
+                        <img data-way="left" onClick="onAligne(this.dataset.way)" src="img/ICONS/align-to-right.png"
+                            alt="align-right">
+                    </div>
+                    <div class="size flex">
+                        <input type="range" value="30" min="10" max="60" oninput="onChangeFontSize(this.value)">
+                        <span class="font-size">30</span>
+                    </div>
+                    <div class="font-family flex">
+                        <select value="Impact" onchange="onSetFontFamily(this.value)">
+                            <option value="Impact">Imapct</option>
+                            <option value="sans-serif">sans-serif</option>
+                        </select>
+                    </div>
+                    <div class="fill-color flex">
+                        <img src="img/ICONS/paint-board-and-brush.png" alt="fill">
+                        <input id="color-picker" type="color" oninput="onChangeTxtColor(this.value)">
+                    </div>
+                    <div class="stroke flex">
+                        <img src="img/ICONS/text stroke.png" alt="stroke">
+                        <input type="range" value="0" min="0" max="5" oninput="onChangeStrokeWidth(this.value)">
+                        <span class="stroke-size">0</span>
+                        <input id="color-picker" type="color" oninput="onChangeStrokeColor(this.value)">
+                    </div>
+                    <div class="share flex">
+                        <a href="#" onclick="downloadCanvas(this)" download="my-canvas">Download</a>
+                        <img id="fb-logo" onClick="uploadImg()" src="img/ICONS/facebook-logo.png" alt="facebook">
+                        <div class="share-container">
+                            <span class="user-msg"></p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
     <script src="js/gallery-service.js"></script>
     <script src="js/gallery-controller.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/meme-service.js"></script>
 </body>
+
+<section class="about hidden">
+    <button onClick="toggleAbout()">X</button>
+    <h2>Meme</h2>
+    <p>
+        A meme is an idea, behavior, or style that spreads by means of imitation from person to
+        person within a culture and often carries symbolic meaning representing a particular phenomenon or theme. A meme
+        acts as a unit for carrying cultural ideas, symbols, or practices, that can be transmitted from one mind to
+        another
+        through writing, speech, gestures, rituals, or other imitable phenomena with a mimicked theme. Supporters of the
+        concept regard memes as cultural analogues to genes in that they self-replicate, mutate, and respond to
+        selective
+        pressures.
+    </p>
+    <a href="https://en.wikipedia.org/wiki/Meme">Read More...</a>
+    <img src="img/ICONS/pngwing.com.png" alt="Wikipedia">
+</section>
+
+<footer>
+    <p> © memegen 2022 - Yuval Rubin</p>
+    <p>Yuvalr96@gmail.com</p>
+</footer>
 
 <script>
     function toggleMenu() {

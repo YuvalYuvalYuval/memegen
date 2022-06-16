@@ -29,6 +29,10 @@ function renderSuggestionSize(keyId) {
     elSuggestion.style.fontSize = `${currSize}px`
 }
 
+function toggleAbout() {
+    document.querySelector('.about').classList.toggle('hidden')
+}
+
 
 //EVENTS FROM VIEW
 function onImgSelect(imgId) {
