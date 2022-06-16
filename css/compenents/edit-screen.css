@@ -1,0 +1,93 @@
+.edit-screen {
+    display: none;
+}
+
+.edit-screen .text-input {
+    width: 95%;
+}
+
+.edit-container {
+    justify-items: center;
+    grid-gap: .5rem;
+}
+
+.edit-canvas {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.control-panel {
+    width: 100%;
+    padding: .3rem;
+    max-height: 300px;
+
+    grid-template-rows: repeat(7, 1fr) 2fr;
+    grid-gap: .3rem;
+    align-items: start;
+}
+
+.control-panel>* {
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.control-panel img {
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    padding: 2px;
+    border-radius: .2rem;
+    cursor: pointer;
+    margin: auto 2px;
+}
+
+.control-panel img:hover {
+    background-color: var(--clr2);
+
+}
+
+.fill-collor {
+    position: relative;
+}
+
+.stroke {
+    position: relative;
+}
+
+#color-picker {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    opacity: 0;
+}
+
+.stroke #color-picker {
+    left: 25px;
+}
+
+.font-family select {
+    font-family: 'Impact';
+    outline: 1px solid var(--clr2);
+    background-color: white;
+}
+
+
+
+
+.text-input {
+    color: black;
+}
+
+#fb-logo {
+    background-color: #3F62A9;
+    color: whitesmoke;
+}
+
+.share a {
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.share a:hover {
+    color: var(--clr3);
+}

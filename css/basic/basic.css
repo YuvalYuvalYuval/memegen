@@ -1,0 +1,46 @@
+html {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    font-size: 1rem;
+    background-color: var(--clr1);
+    background-image: url("https://www.transparenttextures.com/patterns/robots.png");
+    max-height: 100vh;
+    max-width: 100%;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+i {
+    font-family: 'Impact';
+}
+
+input {
+    cursor: pointer;
+}
+
+.main-screen {
+    position: fixed;
+    inset: 0;
+    background-color: rgb(0 0 0 /63%);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.6s;
+}
+
+body.menu-open .main-screen {
+    opacity: 1;
+    pointer-events: auto;
+}

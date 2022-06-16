@@ -1,0 +1,16 @@
+/* IMPACT */
+@font-face {
+    font-family: 'Impact';
+    src: url('../../fonts/impact/impact.ttf');
+}
+
+/* MONTSERRAT */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../fonts/Montserrat/static/Montserrat-Regular.ttf');
+}
+
+#preloadImpact {
+    position: absolute;
+    opacity: 0;
+}

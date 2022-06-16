@@ -1,0 +1,56 @@
+@media screen and (min-width:900px) {
+    header {
+        height: 7rem;
+    }
+
+    header .nav-bar a {
+        height: 7rem;
+        height: 7rem;
+    }
+    .main-layout {
+        padding: 0 2rem;
+    }
+
+    .edit-container {
+        grid-template: auto/auto;
+    }
+
+    .control-panel {
+        max-height: 100%;
+        grid-area: 1/2;
+    }
+
+    .control-panel img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .edit-canvas {
+        max-width: 650px;
+        max-height: 650px;
+    }
+
+    .stroke #color-picker {
+        left: 2px;
+    }
+
+    .gallery img {
+        height: 180px;
+        width: 180px;
+    }
+
+    .suggestions {
+        display: flex;
+    }
+
+    button.menu-toggle {
+        display: none;
+    }
+
+    .nav-bar {
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        max-width: 100%;
+    }
+}
