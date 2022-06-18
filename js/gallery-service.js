@@ -110,7 +110,8 @@ function updateKeywordSearchCountMap(key) {
 //GETTERS
 
 function getCurrImg() {
-    const img = gImgs.find(img => img.id === gCurrMeme.selectedImgId)
+    const allImgs = [...gSavedImgs, ...gImgs]
+    const img = allImgs.find(img => img.id === gCurrMeme.selectedImgId)
     return img
 }
 

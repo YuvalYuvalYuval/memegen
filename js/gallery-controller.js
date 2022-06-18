@@ -1,13 +1,10 @@
 'use strict'
 const elGallery = document.querySelector('.gallery')
 
-
-
 function init() {
     renderGallery()
     renderSuggestionSizes()
 }
-
 
 //RENDER VIEW
 function renderGallery() {
@@ -42,6 +39,7 @@ function toggleMenu() {
 function onImgSelect(imgId) {
     setCurrImg(imgId)
     document.querySelector('.gallery-container').style.display = 'none'
+    document.querySelector('.saved-container').style.display = 'none'
     renderMeme()
 }
 
@@ -67,6 +65,7 @@ function onRandom() {
 
 function onGoToGallery() {
     document.querySelector('.edit-screen').style.display = 'none'
+    document.querySelector('.saved-container').style.display = 'none'
     document.querySelector('.gallery-container').style.display = 'flex'
     document.querySelector('.gallery-content .text-input').value = ''
     setSearchFilter('')

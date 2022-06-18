@@ -2,6 +2,12 @@
 const gElCanvas = document.querySelector('.edit-canvas')
 const gCtx = gElCanvas.getContext('2d')
 
+setCanvasSize()
+
+window.onresize = () => {
+    resizeCanvas();
+}
+
 //EVENTS FROM VIEW
 
 function onEditTxt(value) {
@@ -64,6 +70,17 @@ function onChangeStrokeColor(color) {
 }
 
 // RENDER VIEW
+
+function setCanvasSize() {
+    if (window.innerWidth >= 900) {
+        gElCanvas.width = 650
+        gElCanvas.height = 650
+    } else {
+        gElCanvas.width = 300
+        gElCanvas.height = 300
+    }
+}
+
 function renderMeme() {
     const currImg = getCurrImg()
 
@@ -72,6 +89,7 @@ function renderMeme() {
         gCtx.drawImage(memeImg, 0, 0, gElCanvas.width, gElCanvas.height)
         renderText()
     }
+    // memeImg.crossOrigin = "anonymous" //TODO - having trouble with that line (for saving to localStrorage as not tainted)
     memeImg.src = currImg.url
     document.querySelector('.edit-screen').style.display = 'flex'
 }
@@ -92,7 +110,7 @@ function renderText() {
     })
 }
 
-function drawRectAround(lineIdx) { //TODO
+function drawRectAround(lineIdx) {
     const line = getLineByIdx(lineIdx)
     gCtx.beginPath()
     gCtx.rect(0, line.position.y + 5, gElCanvas.width, -line.size - 5)
@@ -103,19 +121,19 @@ function drawRectAround(lineIdx) { //TODO
 
 //CLEAR
 function clearCanvas() {
-    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
 }
 
 //DOWNLOAD
 function downloadCanvas(elLink) {
-    const data = gElCanvas.toDataURL();
-    elLink.href = data;
+    const data = gElCanvas.toDataURL()
+    elLink.href = data
 }
 
 //UPLOAD TO FB
 
 function uploadImg() {
-    const imgDataUrl = gElCanvas.toDataURL("image/jpeg");// Gets the canvas content as an image format
+    const imgDataUrl = gElCanvas.toDataURL("image/jpeg") // Gets the canvas content as an image format
 
     // A function to be called if request succeeds
     function onSuccess(uploadedImgUrl) {

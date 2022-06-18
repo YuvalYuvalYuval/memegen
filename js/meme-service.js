@@ -1,7 +1,6 @@
 'use strict'
 
-var gCurrMeme =
-{
+var gCurrMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     fontFamily: 'Impact',
@@ -12,7 +11,7 @@ var gCurrMeme =
     lines: [
         {
             txt: 'I sometimes eat Falafel',
-            size: 30,
+            size: 25,
             align: 'center',
             color: 'white',
             position: {
@@ -22,7 +21,7 @@ var gCurrMeme =
         },
         {
             txt: 'But im always missing it',
-            size: 30,
+            size: 25,
             align: 'center',
             color: 'white',
             position: {
@@ -30,8 +29,11 @@ var gCurrMeme =
                 y: gElCanvas.height - 50,
             }
         },
-    ]
+    ],
 }
+
+
+var gDraggedLine
 
 function switchLine() {
     if (++gCurrMeme.selectedLineIdx >= gCurrMeme.lines.length) gCurrMeme.selectedLineIdx = 0
@@ -54,7 +56,7 @@ function addLine() {
 function createDefaultLine() {
     return {
         txt: 'Im The New Line You Asked For!',
-        size: 30,
+        size: 25,
         align: 'center',
         color: 'white',
         position: {
@@ -110,4 +112,70 @@ function setStrokeColor(color) {
 function setFontFamily(font) {
     gCurrMeme.fontFamily = font
     document.querySelector('.font-family select').style.fontFamily = font
+}
+
+//DRAG & DROP LINES
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
+
+gElCanvas.addEventListener('mousemove', dragLine)
+gElCanvas.addEventListener('mousedown', down)
+gElCanvas.addEventListener('mouseup', up)
+gElCanvas.addEventListener('mouseout', up)
+
+gElCanvas.addEventListener('touchmove', dragLine)
+gElCanvas.addEventListener('touchstart', down)
+gElCanvas.addEventListener('touchend', up)
+
+
+function down(ev) {
+    const clickPos = getEvPos(ev)
+    const clickedLine = getLineFromPos(clickPos)
+    if (clickedLine) {
+        document.body.style.cursor = 'grab'
+        gDraggedLine = clickedLine
+    }
+}
+
+function getLineFromPos(pos) {
+    return gCurrMeme.lines.find(line =>
+        line.position.y + 5 > pos.y && line.position.y - line.size - 5 < pos.y)
+}
+
+function up() {
+    document.body.style.cursor = 'auto'
+    gDraggedLine = ''
+}
+
+function getEvPos(ev) {
+    var pos = {
+        x: ev.offsetX,
+        y: ev.offsetY
+    }
+    if (gTouchEvs.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
+        }
+    }
+    return pos
+}
+
+function dragLine(ev) {
+    if (!gDraggedLine) return;
+    gDraggedLine.position = getEvPos(ev)
+    renderMeme()
+}
+
+function resizeCanvas() {
+    if (window.innerWidth >= 900) {
+        gElCanvas.width = 650
+        gElCanvas.height = 650
+    } else {
+        gElCanvas.width = 300
+        gElCanvas.height = 300
+    }
+    if (window.innerWidth === 900) location.reload();
+    if (document.querySelector('.edit-screen').style.display === 'flex') renderMeme()
 }

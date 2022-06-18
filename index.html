@@ -18,6 +18,7 @@
 
             <ul class="nav-bar clean-list flex">
                 <li><a onClick="onGoToGallery()" href="#">Gallery</a></li>
+                <li><a onclick="onGoToSaved()" href="#">Saved</a></li>
                 <li><a onClick="toggleAbout()" href="#">About</a></li>
             </ul>
             <button onclick="toggleMenu(this)" class="menu-toggle">☰</button>
@@ -47,7 +48,7 @@
 
         <section class="edit-screen edit-layout main-layout">
             <div class="edit-container">
-                <canvas class='edit-canvas' height="650" width="650"></canvas>
+                <canvas class='edit-canvas'></canvas>
                 <div class="control-panel flex">
                     <input class="text-input" onfocus="this.value=''" type="text" placeholder="Edit Text..."
                         oninput="onEditTxt(this.value)">
@@ -93,6 +94,7 @@
                         <input id="color-picker" type="color" oninput="onChangeStrokeColor(this.value)">
                     </div>
                     <div class="share flex">
+                        <a onclick="onSaveImg()" href="#">Save</a>
                         <a href="#" onclick="downloadCanvas(this)" download="my-canvas">Download</a>
                         <img id="fb-logo" onClick="uploadImg()" src="img/ICONS/facebook-logo.png" alt="facebook">
                         <div class="share-container">
@@ -102,34 +104,43 @@
                 </div>
             </div>
         </section>
+
+        <section class="saved-container gallery-layout flex main-layout hidden"></section>
     </main>
+
+    <section class="about hidden">
+        <button onClick="toggleAbout()">X</button>
+        <h2>Meme</h2>
+        <p>
+            A meme is an idea, behavior, or style that spreads by means of imitation from person to
+            person within a culture and often carries symbolic meaning representing a particular phenomenon or theme. A
+            meme
+            acts as a unit for carrying cultural ideas, symbols, or practices, that can be transmitted from one mind to
+            another
+            through writing, speech, gestures, rituals, or other imitable phenomena with a mimicked theme. Supporters of
+            the
+            concept regard memes as cultural analogues to genes in that they self-replicate, mutate, and respond to
+            selective
+            pressures.
+        </p>
+        <a href="https://en.wikipedia.org/wiki/Meme">Read More...</a>
+        <img src="img/ICONS/pngwing.com.png" alt="Wikipedia">
+    </section>
+
+    <footer>
+        <p> © memegen 2022 - Yuval Rubin</p>
+        <p>Yuvalr96@gmail.com</p>
+    </footer>
+
+    <script src="js/storage-service.js"></script>
+    <script src="js/saved-controller.js"></script>
+    <script src="js/saved-service.js"></script>
     <script src="js/gallery-service.js"></script>
     <script src="js/gallery-controller.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/meme-service.js"></script>
 </body>
 
-<section class="about hidden">
-    <button onClick="toggleAbout()">X</button>
-    <h2>Meme</h2>
-    <p>
-        A meme is an idea, behavior, or style that spreads by means of imitation from person to
-        person within a culture and often carries symbolic meaning representing a particular phenomenon or theme. A meme
-        acts as a unit for carrying cultural ideas, symbols, or practices, that can be transmitted from one mind to
-        another
-        through writing, speech, gestures, rituals, or other imitable phenomena with a mimicked theme. Supporters of the
-        concept regard memes as cultural analogues to genes in that they self-replicate, mutate, and respond to
-        selective
-        pressures.
-    </p>
-    <a href="https://en.wikipedia.org/wiki/Meme">Read More...</a>
-    <img src="img/ICONS/pngwing.com.png" alt="Wikipedia">
-</section>
-
-<footer>
-    <p> © memegen 2022 - Yuval Rubin</p>
-    <p>Yuvalr96@gmail.com</p>
-</footer>
 
 
 </html>

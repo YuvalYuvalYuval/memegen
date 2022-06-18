@@ -13,16 +13,12 @@
 
     }
 
-    .edit-canvas {
-        max-width: 650px;
-        max-height: 650px;
-    }
-
     .stroke #color-picker {
         left: 2px;
     }
 
-    .gallery img {
+    .gallery img,
+    .saved-container img {
         height: 180px;
         width: 180px;
     }

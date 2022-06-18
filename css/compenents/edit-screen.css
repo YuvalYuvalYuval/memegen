@@ -10,11 +10,8 @@
 
 .edit-container {
     justify-items: center;
-}
-
-.edit-canvas {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 650px;
+    max-height: 650px;
 }
 
 .control-panel {
@@ -38,7 +35,8 @@
     margin: auto 2px;
 }
 
-.control-panel img:hover {
+.control-panel img:hover,
+.control-panel a:hover {
     background-color: var(--clr2);
 
 }
@@ -72,8 +70,8 @@
 }
 
 .share a {
-    font-size: 1.5rem;
     text-decoration: none;
+    color: black;
 }
 
 .share a:hover {
