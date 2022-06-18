@@ -1,0 +1,19 @@
+/* SETUP */
+@import url("setup/vars.css");
+@import url("setup/typography.css");
+
+/* BASIC */
+@import url("basic/basic.css");
+@import url("basic/helpers.css");
+@import url("basic/layouts.css");
+
+/* COMPONENTS */
+@import url("compenents/header.css");
+@import url("compenents/gallery.css");
+@import url("compenents/edit-screen.css");
+@import url("compenents/saved.css");
+@import url("compenents/footer.css");
+@import url("compenents/about.css");
+
+/* MEDIA QUERIES */
+@import url("mq/mq.css");

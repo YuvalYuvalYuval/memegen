@@ -1,0 +1,40 @@
+@media screen and (min-width:900px) {
+    .main-layout {
+        padding: 0 2rem;
+    }
+
+    .edit-container {
+        display: flex;
+    }
+
+    .control-panel img {
+        height: 40px;
+        width: 40px;
+
+    }
+
+    .stroke #color-picker {
+        left: 2px;
+    }
+
+    .gallery img,
+    .saved-container img {
+        height: 180px;
+        width: 180px;
+    }
+
+    .suggestions {
+        display: flex;
+    }
+
+    button.menu-toggle {
+        display: none;
+    }
+
+    .nav-bar {
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        max-width: 100%;
+    }
+}
