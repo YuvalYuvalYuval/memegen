@@ -27,6 +27,8 @@ function onChangeFontSize(value) {
 }
 
 function onSwitchLine() {
+    const meme = getCurrMeme()
+    if (meme.lines.length === 0) return
     switchLine()
     const lineIdx = getCurrentLine()
     document.getElementById('current-line').innerText = lineIdx + 1

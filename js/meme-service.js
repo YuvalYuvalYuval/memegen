@@ -96,6 +96,7 @@ function getCurrMeme() {
 function getCurrentLine() {
     return gCurrMeme.selectedLineIdx
 }
+
 function getLineByIdx(lineIdx) {
     return gCurrMeme.lines[lineIdx]
 }
