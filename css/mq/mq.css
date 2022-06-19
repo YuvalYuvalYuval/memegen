@@ -13,14 +13,13 @@
 
     }
 
-    .stroke #color-picker {
-        left: 2px;
+    .gallery,
+    .saved-container {
+        grid-template-columns: repeat(5, 20%);
     }
 
-    .gallery img,
-    .saved-container img {
-        height: 180px;
-        width: 180px;
+    .stroke #color-picker {
+        left: 2px;
     }
 
     .suggestions {

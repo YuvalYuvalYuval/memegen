@@ -1,5 +1,23 @@
 'use strict'
 
+const memesSentences = [
+    'I never eat falafel',
+    'DOMS DOMS EVERYWHERE',
+    'Stop Using i in for loops',
+    'Armed in knowledge',
+    'Js error "Unexpected String"',
+    'One does not simply write js',
+    'I`m a simple man i see vanilla JS, i click like!',
+    'JS, HTML,CSS?? Even my momma can do that',
+    'May the force be with you',
+    'I know JS',
+    'JS Where everything is made up and the rules dont matter',
+    'Not sure if im good at programming or good at googling',
+    'But if we could',
+    'JS what is this?',
+    'Write hello world , add to cv 7 years experienced',
+]
+
 var gCurrMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -10,8 +28,8 @@ var gCurrMeme = {
     },
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
-            size: 25,
+            txt: '',
+            size: 20,
             align: 'center',
             color: 'white',
             position: {
@@ -20,8 +38,8 @@ var gCurrMeme = {
             }
         },
         {
-            txt: 'But im always missing it',
-            size: 25,
+            txt: '',
+            size: 20,
             align: 'center',
             color: 'white',
             position: {
@@ -40,8 +58,10 @@ function switchLine() {
 }
 
 function moveLine(way) {
-    const linePos = gCurrMeme.lines[gCurrMeme.selectedLineIdx].position
-    way === 'up' ? linePos.y -= 10 : linePos.y += 10
+    const line = gCurrMeme.lines[gCurrMeme.selectedLineIdx]
+    if (line) {
+        way === 'up' ? line.position.y -= 10 : line.position.y += 10
+    }
 }
 
 function deleteCurrLine() {
@@ -55,8 +75,8 @@ function addLine() {
 
 function createDefaultLine() {
     return {
-        txt: 'Im The New Line You Asked For!',
-        size: 25,
+        txt: getRandomLine(),
+        size: 20,
         align: 'center',
         color: 'white',
         position: {
@@ -80,6 +100,17 @@ function getLineByIdx(lineIdx) {
     return gCurrMeme.lines[lineIdx]
 }
 
+function generateRandomLines() {
+    gCurrMeme.lines.forEach(line => {
+        line.txt = getRandomLine()
+    });
+}
+
+function getRandomLine() {
+    const idx = Math.floor(Math.random() * memesSentences.length)
+    return memesSentences[idx]
+}
+
 //SETTERS
 
 function setLineTxt(value) {
@@ -89,16 +120,22 @@ function setLineTxt(value) {
 
 function setTxtColor(color) {
     const line = gCurrMeme.lines[gCurrMeme.selectedLineIdx];
-    line.color = color
+    if (line) {
+        line.color = color
+    }
 }
 function setFontSize(value) {
     const line = gCurrMeme.lines[gCurrMeme.selectedLineIdx];
-    line.size = value
+    if (line) {
+        line.size = value
+    }
 }
 
 function setAlign(way) {
     const line = gCurrMeme.lines[gCurrMeme.selectedLineIdx]
-    line.align = way
+    if (line) {
+        line.align = way
+    }
 }
 
 function setStrokeWidth(value) {
@@ -131,6 +168,7 @@ function down(ev) {
     const clickPos = getEvPos(ev)
     const clickedLine = getLineFromPos(clickPos)
     if (clickedLine) {
+        updateSelctedLineIdx(clickedLine)
         document.body.style.cursor = 'grab'
         gDraggedLine = clickedLine
     }
@@ -138,7 +176,7 @@ function down(ev) {
 
 function getLineFromPos(pos) {
     return gCurrMeme.lines.find(line =>
-        line.position.y + 5 > pos.y && line.position.y - line.size - 5 < pos.y)
+        line.position.y > pos.y && line.position.y - line.size < pos.y)
 }
 
 function up() {
@@ -178,4 +216,11 @@ function resizeCanvas() {
     }
     if (window.innerWidth === 900) location.reload();
     if (document.querySelector('.edit-screen').style.display === 'flex') renderMeme()
+}
+
+function updateSelctedLineIdx(clickedLine) {
+    const idx = gCurrMeme.lines.findIndex(line => line === clickedLine)
+    gCurrMeme.selectedLineIdx = idx
+    document.getElementById('current-line').innerText = idx + 1
+    drawRectAround(idx)
 }

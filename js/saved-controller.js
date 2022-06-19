@@ -8,8 +8,9 @@ function onSaveImg() {
 function onGoToSaved() {
     document.querySelector('.edit-screen').style.display = 'none'
     document.querySelector('.gallery-container').style.display = 'none'
+    document.querySelector('.search-bar').style.display = 'none'
     renderSavedImgs()
-    document.querySelector('.saved-container').style.display = 'flex'
+    document.querySelector('.saved-container').style.display = 'grid'
 }
 
 function renderSavedImgs() {

@@ -23,35 +23,47 @@
             </ul>
             <button onclick="toggleMenu(this)" class="menu-toggle">☰</button>
         </div>
+        <div class="search-bar flex">
+            <div class="search-memes flex">
+                <input onchange="onSearchMemes()" list="keywords" class="text-input" type="text" maxlength="10"
+                    placeholder="Search keyword...">
+
+                <datalist id="keywords">
+                    <option value="Classic">
+                    <option value="Tv">
+                    <option value="Movies">
+                    <option value="Babies">
+                    <option value="Cats">
+                    <option value="Politics">
+                </datalist>
+
+                <img onclick="onSearchMemes()" src="img/ICONS/search-icon.png" alt="search">
+            </div>
+            <ul class="suggestions clean-list flex">
+                <li id="classic" onclick="onSuggestionClick(this.id)">classic</li>
+                <li id="tv" onclick="onSuggestionClick(this.id)">tv</li>
+                <li id="movies" onclick="onSuggestionClick(this.id)">movies</li>
+                <li id="babies" onclick="onSuggestionClick(this.id)">babies</li>
+                <li id="cats" onclick="onSuggestionClick(this.id)">cats</li>
+                <li id="politics" onclick="onSuggestionClick(this.id)">politics</li>
+            </ul>
+            <img onclick="onRandom()" src="img/ICONS/shuffle.png" alt="random">
+        </div>
     </header>
+
     <main>
         <section class="gallery-container">
             <div class="gallery-content">
-                <div class="search-bar flex">
-                    <div class="search-memes flex">
-                        <input class="text-input" type="text" placeholder="Enter search keyword">
-                        <img onclick="onSearchMemes()" src="img/ICONS/search-icon.png" alt="search">
-                    </div>
-                    <ul class="suggestions clean-list flex">
-                        <li id="classic" onclick="onSuggestionClick(this.id)">classic</li>
-                        <li id="tv" onclick="onSuggestionClick(this.id)">tv</li>
-                        <li id="movies" onclick="onSuggestionClick(this.id)">movies</li>
-                        <li id="babies" onclick="onSuggestionClick(this.id)">babies</li>
-                        <li id="cats" onclick="onSuggestionClick(this.id)">cats</li>
-                        <li id="politics" onclick="onSuggestionClick(this.id)">politics</li>
-                    </ul>
-                    <img onclick="onRandom()" src="img/ICONS/shuffle.png" alt="random">
-                </div>
-                <div class="gallery gallery-layout flex main-layout"></div>
+                <div class="gallery gallery-layout main-layout"></div>
             </div>
         </section>
 
-        <section class="edit-screen edit-layout main-layout">
+        <section class="edit-screen main-layout flex hidden">
             <div class="edit-container">
                 <canvas class='edit-canvas'></canvas>
                 <div class="control-panel flex">
-                    <input class="text-input" onfocus="this.value=''" type="text" placeholder="Edit Text..."
-                        oninput="onEditTxt(this.value)">
+                    <input class="text-input" onfocus="this.value=''" type="text" maxlength="30"
+                        placeholder="Edit Text..." oninput="onEditTxt(this.value)">
                     <div class="line-menu flex">
                         <img onClick="onSwitchLine()"
                             src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="switch-line">
@@ -105,7 +117,7 @@
             </div>
         </section>
 
-        <section class="saved-container gallery-layout flex main-layout hidden"></section>
+        <section class="saved-container gallery-layout main-layout hidden"></section>
     </main>
 
     <section class="about hidden">

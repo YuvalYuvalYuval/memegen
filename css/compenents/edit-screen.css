@@ -1,23 +1,25 @@
 .edit-screen {
-    display: none;
+    justify-content: center;
 }
 
 .edit-screen .text-input {
-    width: 95%;
-    border-radius: .3rem;
-    padding: .6rem;
+    border: none;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+    padding: .4rem;
+    font-weight: bold;
 }
 
-.edit-container {
-    justify-items: center;
-    max-width: 650px;
-    max-height: 650px;
+.edit-screen .text-input:focus {
+    background-color: #f78102bd;
 }
 
 .control-panel {
     flex-direction: column;
     justify-content: space-between;
     gap: .5rem;
+    border: 1px solid gray;
+    border-radius: 1rem;
 }
 
 .control-panel>* {

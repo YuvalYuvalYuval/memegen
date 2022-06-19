@@ -37,9 +37,11 @@ function toggleMenu() {
 
 //EVENTS FROM VIEW
 function onImgSelect(imgId) {
+    generateRandomLines()
     setCurrImg(imgId)
     document.querySelector('.gallery-container').style.display = 'none'
     document.querySelector('.saved-container').style.display = 'none'
+    document.querySelector('.search-bar').style.display = 'none'
     renderMeme()
 }
 
@@ -66,8 +68,9 @@ function onRandom() {
 function onGoToGallery() {
     document.querySelector('.edit-screen').style.display = 'none'
     document.querySelector('.saved-container').style.display = 'none'
-    document.querySelector('.gallery-container').style.display = 'flex'
-    document.querySelector('.gallery-content .text-input').value = ''
+    document.querySelector('.gallery-container').style.display = 'block'
+    document.querySelector('.search-bar').style.display = 'flex'
+    document.querySelector('.search-bar .text-input').value = ''
     setSearchFilter('')
     renderGallery()
 }
