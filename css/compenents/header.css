@@ -64,6 +64,10 @@ button.menu-toggle {
     cursor: pointer;
 }
 
+.search-bar {
+    max-width: 100%;
+}
+
 .search-bar img {
     height: 22px;
     width: 22px;
